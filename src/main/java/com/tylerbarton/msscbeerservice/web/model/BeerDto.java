@@ -1,5 +1,6 @@
 package com.tylerbarton.msscbeerservice.web.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class BeerDto {
     private UUID id;
     @Null
     private Integer version;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     @Null
     private OffsetDateTime createdDate;
     @Null
@@ -39,6 +41,7 @@ public class BeerDto {
     @Positive
     @NotNull
     private Long upc;
+    @JsonFormat(shape=JsonFormat.Shape.STRING)
     @Positive
     @NotNull
     private BigDecimal price;
