@@ -40,7 +40,7 @@ public class Beer {
     private String beerName;
     private String beerStyle;               // could be BeerStyleEnum later
     @Column(unique=true)                    // upc should be unique
-    private Long upc;
+    private String upc;
     private BigDecimal price;               // money represented by BigDecimal
 
     // Quantity data

@@ -1,5 +1,7 @@
 package com.tylerbarton.msscbeerservice.web.model;
 
+import com.tylerbarton.msscbeerservice.bootstrap.BeerLoader;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -19,10 +21,9 @@ public class BaseTest {
                 .beerStyle(BeerStyleEnum.ALE)
                 .id(UUID.randomUUID())
                 .price(new BigDecimal("5.95"))
-                .upc(238492348L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
-                .myLocalDate(LocalDate.now())
                 .build();
     }
 }

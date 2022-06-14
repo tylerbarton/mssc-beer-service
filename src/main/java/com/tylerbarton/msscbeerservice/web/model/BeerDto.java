@@ -2,8 +2,6 @@ package com.tylerbarton.msscbeerservice.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +13,6 @@ import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -42,9 +39,8 @@ public class BeerDto {
     private String beerName;
     @NotNull
     private BeerStyleEnum beerStyle;
-    @Positive
     @NotNull
-    private Long upc;
+    private String upc;
     @JsonFormat(shape=JsonFormat.Shape.STRING)
     @Positive
     @NotNull

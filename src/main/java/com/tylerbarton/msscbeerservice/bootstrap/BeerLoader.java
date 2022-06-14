@@ -14,6 +14,11 @@ import java.math.BigDecimal;
 @Component // Required so Spring context picks it up
 public class BeerLoader implements CommandLineRunner {
 
+    // Standard UPCs
+    public static final String BEER_1_UPC = "0771243100036";
+    public static final String BEER_2_UPC = "0771243400019";
+    public static final String BEER_3_UPC = "0087784475214";
+
     private final BeerRepository beerRepository;
 
     /**
@@ -45,15 +50,25 @@ public class BeerLoader implements CommandLineRunner {
                             .beerStyle("IPA")
                             .quantityToBrew(100)
                             .minOnHand(12)
-                            .upc(3370102391203L)
+                            .upc(BEER_1_UPC)
                             .price(new BigDecimal("5.95"))
                         .build());
+
             beerRepository.save(Beer.builder()
                     .beerName("new aged beer")
                     .beerStyle("IPA")
                     .quantityToBrew(200)
                     .minOnHand(12)
-                    .upc(3370102391204L)
+                    .upc(BEER_2_UPC)
+                    .price(new BigDecimal("6.95"))
+                    .build());
+
+            beerRepository.save(Beer.builder()
+                    .beerName("third aged beer")
+                    .beerStyle("IPA")
+                    .quantityToBrew(200)
+                    .minOnHand(12)
+                    .upc(BEER_3_UPC)
                     .price(new BigDecimal("6.95"))
                     .build());
         }
