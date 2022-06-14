@@ -1,6 +1,7 @@
 package com.tylerbarton.msscbeerservice.web.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -21,6 +22,7 @@ public class BaseTest {
                 .upc(238492348L)
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
+                .myLocalDate(LocalDate.now())
                 .build();
     }
 }
