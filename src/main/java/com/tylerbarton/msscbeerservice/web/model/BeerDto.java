@@ -2,6 +2,7 @@ package com.tylerbarton.msscbeerservice.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -50,5 +51,6 @@ public class BeerDto {
     @PositiveOrZero
     private Integer quantityOnHand;
     @JsonSerialize(using=LocalDateSerializer.class)
+    @JsonDeserialize(using=LocalDateDeserializer.class)
     private LocalDate myLocalDate;
 }
