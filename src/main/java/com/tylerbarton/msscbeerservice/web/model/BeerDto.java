@@ -1,5 +1,6 @@
 package com.tylerbarton.msscbeerservice.web.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class BeerDto {
+    @JsonProperty("beerId")
     @Null
     private UUID id;
     @Null
