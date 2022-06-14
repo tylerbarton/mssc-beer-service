@@ -35,6 +35,7 @@ public class BeerDto {
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     @Null
     private OffsetDateTime createdDate;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     @Null
     private OffsetDateTime lastModifiedDate;
     @NotBlank
@@ -50,7 +51,4 @@ public class BeerDto {
     private BigDecimal price;
     @PositiveOrZero
     private Integer quantityOnHand;
-    @JsonSerialize(using=LocalDateSerializer.class)
-    @JsonDeserialize(using=LocalDateDeserializer.class)
-    private LocalDate myLocalDate;
 }
