@@ -10,6 +10,12 @@ import java.util.UUID;
  * Uses PagingAndSortingRepository but could use CrudRepository
  */
 public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
+
+    /**
+     * Gets a beer by Upc from the repository
+     * @param upc the unique upc to search for
+     * @return Beer information for upc
+     */
     Beer findByUpc(String upc);
     // Base class adds enough functionality
 }
