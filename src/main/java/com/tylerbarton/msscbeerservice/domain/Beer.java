@@ -22,7 +22,7 @@ import java.util.UUID;
 public class Beer {
     // Identifying information
     @Id
-    @GeneratedValue(generator="UUID")
+    @GeneratedValue(generator="UUID") // Generates a UUID for us
     @GenericGenerator(name="UUID", strategy="org.hibernate.id.UUIDGenerator")
     @Column(length=36, columnDefinition="varchar(36)", updatable=false, nullable=false)
     private UUID io;

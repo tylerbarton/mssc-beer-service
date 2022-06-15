@@ -6,6 +6,7 @@ import com.tylerbarton.msscbeerservice.web.mappers.BeerMapper;
 import com.tylerbarton.msscbeerservice.web.model.BeerDto;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,17 @@ public class BeerServiceImpl implements BeerService {
         beer.setUpc(beerDto.getUpc());
 
         return beerMapper.beerToBeerDto(beerRepository.save(beer));
+    }
+
+    /**
+     * Implements the ability to get a beer by upc
+     * @param upc
+     * @return
+     */
+    @Cacheable(cacheNames = "beerUpcCache", condition = "#showInventoryOnHand==false")
+    @Override
+    public BeerDto getBeerByUpc(String upc) {
+        return beerMapper.beerToBeerDto(beerRepository.findByUpc(upc));
+
     }
 }
